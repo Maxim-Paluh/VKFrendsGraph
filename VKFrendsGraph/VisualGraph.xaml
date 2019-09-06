@@ -1,0 +1,22 @@
+﻿<Window x:Class="VKFrendsGraph.VisualGraph"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="VisualGraph" Height="300" Width="300"
+        xmlns:graphsharp="clr-namespace:GraphSharp.Controls;assembly=GraphSharp.Controls"
+        xmlns:zoom="clr-namespace:WPFExtensions.Controls;assembly=WPFExtensions"
+        x:Name="root" 
+        Closed="VisualGraph_OnClosed"
+        >
+    <Grid x:Name="Grid">
+        <zoom:ZoomControl     Background="#ff656565">
+            <graphsharp:GraphLayout x:Name="graphLayout" Margin="10"
+						Graph="{Binding ElementName=root, Path=GraphToVisualise}"
+                                    LayoutAlgorithmType="{Binding ElementName=root, Path=LayoutAlgorithmType}"
+						OverlapRemovalAlgorithmType="FSA"
+						HighlightAlgorithmType="Simple"
+                                    >
+            </graphsharp:GraphLayout>
+        </zoom:ZoomControl>
+    </Grid>
+</Window>
+<!--{Binding Path=LayoutAlgorithmType, Mode=OneWay}-->
